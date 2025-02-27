@@ -1,59 +1,85 @@
+import React, { memo, useCallback } from 'react';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
-import { StyleSheet } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import { MatchScreen } from '../screens/match/MatchScreen';
 import { FavouriteScreen } from '../screens/favourite/FavouriteScreen';
 
 import Ionicons from '@react-native-vector-icons/ionicons';
 
+
 const Tab = createMaterialTopTabNavigator();
 
-const MatchIcon = ({ focused }: { focused: boolean }) => (
-    <Ionicons
-        name="flame"
-        size={15}
-        color={focused ? 'red' : 'grey'}
-        style={styles.icon}
-    />
-);
+const MatchIcon = memo(({ focused }: { focused: boolean }) => {
+    console.log('MatchIcon - focused:', focused); // 🔍 Log para ver qué pasa con el estado en cada render
 
-const FavouriteIcon = ({ focused }: { focused: boolean }) => (
-    <Ionicons
-        name="star"
-        size={15}
-        color={focused ? 'red' : 'grey'}
-        style={styles.icon}
-    />
-);
+    return (
+        <Ionicons
+            name="flame"
+            size={15}
+            color={focused ? 'red' : 'grey'} // Rojo si está seleccionado
+            style={styles.icon}
+        />
+    );
+});
+
+
+const FavouriteIcon = memo(({ focused }: { focused: boolean }) => {
+    console.log('FavouriteIcon - focused:', focused); // 🔍 Log para ver qué pasa con el estado en cada render
+
+    return (
+        <Ionicons
+            name="star"
+            size={15}
+            color={focused ? 'red' : 'grey'} // Rojo si está seleccionado
+            style={styles.icon}
+        />
+    );
+});
+
+
+
 
 export const TopTabsNavigator = () => {
+    const renderMatchIcon = useCallback(({ focused }: { focused: boolean }) => <MatchIcon focused={focused} />, []);
+    const renderFavouriteIcon = useCallback(({ focused }: { focused: boolean }) => <FavouriteIcon focused={focused} />, []);
     return (
+        <View style={styles.container}>
         <Tab.Navigator
             screenOptions={{
                 tabBarStyle: styles.tabBar,
                 tabBarIndicatorStyle: styles.indicator,
                 tabBarItemStyle: styles.tabItem,
                 tabBarShowLabel: false, // Oculta los nombres de las pestañas
+                lazy: true, // Solo renderiza la pestaña seleccionada
+                tabBarShowIcon: true, // Habilita la visualización de íconos
             }}
         >
             <Tab.Screen
                 name="MatchTopTab"
                 component={MatchScreen}
                 options={{
-                    tabBarIcon: MatchIcon,
+                    tabBarIcon: renderMatchIcon,
                 }}
+                //unmountOnBlur={true}
             />
             <Tab.Screen
                 name="FavouriteTopTab"
                 component={FavouriteScreen}
                 options={{
-                    tabBarIcon: FavouriteIcon,
+                    tabBarIcon: renderFavouriteIcon,
                 }}
+                //unmountOnBlur={true}
             />
         </Tab.Navigator>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
     tabBar: {
         backgroundColor: '#E3E3E4',
         borderRadius: 28,
@@ -97,3 +123,4 @@ const styles = StyleSheet.create({
         bottom: 9,
       },
 });
+

@@ -1,5 +1,5 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { StyleSheet, TouchableOpacity } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import { TabChatScreen } from '../screens/tabs/TabChatScreen';
 import { TabUserScreen } from '../screens/tabs/TabUserScreen';
 import { TopTabsNavigator } from './TopTabsNavigator';
@@ -18,12 +18,13 @@ const TabBarIcon = (name: any) => ({ focused, size }: { color?: string; focused:
 
 export const BottomTabNavigator = () => {
     return (
+        <View style={styles.container}>
         <Tab.Navigator
             screenOptions={{
-                headerShown: false,
-                tabBarShowLabel: false,
+                headerShown: false, // Oculta los títulos en todas las pantallas del BottomTab
+                tabBarShowLabel: false, // Ocultar etiquetas
+                tabBarItemStyle: styles.tabItem, // Aplica los estilos de los ítems
                 tabBarStyle: styles.tabBar,
-                tabBarItemStyle: styles.tabItem,
             }}
         >
             <Tab.Screen name="Match" component={TopTabsNavigator}
@@ -44,10 +45,15 @@ export const BottomTabNavigator = () => {
                 }}
             />
         </Tab.Navigator>
+        </View>
     );
 };
 
 const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: 'white',
+    },
     tabBar: {
         bottom: 50,
         alignSelf: 'center',
@@ -55,11 +61,11 @@ const styles = StyleSheet.create({
         height: 44,
         borderRadius: 60,
         backgroundColor: 'white',
-        elevation: 10,
-        shadowColor: '#000',
+        elevation: 8,
+        shadowColor: 'rgba(0,0,0,0.4)',
         shadowOffset: { width: 0, height: 4 },
-        shadowOpacity: 0.5,
-        shadowRadius: 6,
+        shadowOpacity: 0.2,
+        shadowRadius: 4,
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
@@ -73,3 +79,5 @@ const styles = StyleSheet.create({
         top: 2,
     },
 });
+
+
