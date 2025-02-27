@@ -14,8 +14,10 @@
     "@react-native-vector-icons/ionicons": "^7.4.0",
     "@react-navigation/bottom-tabs": "^7.2.0",
     "@react-navigation/material-top-tabs": "^7.1.0",
+    "axios": "^1.8.1",
     "react": "19.0.0",
     "react-native": "0.78.0",
+    "react-native-dotenv": "^3.4.11",
     "react-native-pager-view": "^6.7.0",
     "react-native-safe-area-context": "^5.2.0",
     "react-native-screens": "^4.9.1"
