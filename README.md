@@ -63,8 +63,9 @@ jest
 
 ## 🎥 Demo Video
 
-![CaTinder Demo](https://res.cloudinary.com/dowfpmath/image/upload/v1740672563/CaTinder-ezgif.com_vtp1op.gif)
+https://res.cloudinary.com/dowfpmath/image/upload/v1740672563/CaTinder-ezgif.com_vtp1op.gif
 
+![CaTinder Demo](https://res.cloudinary.com/dowfpmath/image/upload/v1740672563/CaTinder-ezgif.com_vtp1op.gif?raw=true)
 
 ## 🎭 How Swiping Works
 
