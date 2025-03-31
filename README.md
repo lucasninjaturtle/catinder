@@ -67,6 +67,11 @@ https://res.cloudinary.com/dowfpmath/image/upload/v1740672563/CaTinder-ezgif.com
 
 ![CaTinder Demo](https://res.cloudinary.com/dowfpmath/image/upload/v1740672563/CaTinder-ezgif.com_vtp1op.gif?raw=true)
 
+<a href="https://www.loom.com/share/f813439a72584aa7bdb24236949ad053?sid=ecb668dd-1e96-49c7-babd-4e131b5fe1ff" target="_blank" rel="noopener noreferrer">
+  Ver video en Loom
+</a>
+
+
 ## 🎭 How Swiping Works
 
 CaTinder mimics Tinder's swiping behavior:
